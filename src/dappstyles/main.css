@@ -1,0 +1,815 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Electrolize', sans-serif;
+
+}
+
+a:visited {
+  color: white;
+}
+
+.strips {
+  min-height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  color: white;
+  display: none;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  width: 100vw;
+  max-width: 100%;
+}
+
+.strips__strip {
+  will-change: width, left, z-index, height;
+  position: absolute;
+  width: 25%;
+  min-height: 100vh;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.strips__strip:nth-child(1) {
+  left: 0;
+}
+
+.strips__strip:nth-child(2) {
+  left: 25vw;
+  /* background-image: url("7.jpg"); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.strips__strip:nth-child(3) {
+  left: 50vw;
+}
+
+.strips__strip:nth-child(4) {
+  left: 75vw;
+}
+
+/* .strips__strip:nth-child(5) {
+  left: 100vw;
+}
+
+.strips__strip:nth-child(6) {
+  left: 100vw;
+} */
+
+.strips__strip:nth-child(1) .strip__content {
+  background: #333333;
+  transform: translate3d(-100%, 0, 0);
+  animation-name: strip1;
+  animation-delay: 0.5s;
+
+  background-image: url("yTheus_USP.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+}
+
+
+.strips__strip:nth-child(2) .strip__content {
+  background: #333333;
+  transform: translate3d(-100%, 0, 0);
+  animation-name: strip2;
+  animation-delay: 0.5s;
+
+  background-image: url("Theus_USP.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+
+
+}
+
+
+.strips__strip:nth-child(3) .strip__content {
+  background: #333333;
+  transform: translate3d(0, -100%, 0);
+  animation-name: strip3;
+  animation-delay: 0.3s;
+
+  background-image: url("yTheus_FP.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-size: 50%; */
+
+}
+
+.strips__strip:nth-child(4) .strip__content {
+  background: #333333;
+  transform: translate3d(0, 100%, 0);
+  animation-name: strip4;
+  animation-delay: 0.4s;
+
+  background-image: url("Theus_FP.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+
+}
+
+.strips__strip:nth-child(5) .strip__content {
+  background: #6c757d;
+  transform: translate3d(0, -100%, 0);
+  animation-name: strip5;
+  animation-delay: 0.5s;
+
+  background-image: url("Theus_Yield_Fire.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.strips__strip:nth-child(6) .strip__content {
+  background: #244f75;
+  transform: translate3d(100%, 0, 0);
+  animation-name: strip6;
+  animation-delay: 0.6s;
+
+
+  background-image: url("https://i.pinimg.com/originals/83/04/73/830473a28f9c71853c9019061a39bc59.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-width: 880px) {
+  .strips__strip {
+    min-height: 20vh;
+  }
+
+  .strips__strip:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .strips__strip:nth-child(2) {
+    top: 20vh;
+    left: 0;
+    width: 100%;
+  }
+
+  .strips__strip:nth-child(3) {
+    top: 40vh;
+    left: 0;
+    width: 100%;
+  }
+
+  .strips__strip:nth-child(4) {
+    top: 60vh;
+    left: 0;
+    width: 100%;
+  }
+
+  .strips__strip:nth-child(5) {
+    top: 80vh;
+    left: 0;
+    width: 100%;
+  }
+
+  .strips__strip:nth-child(6) {
+    top: 100vh;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.strips .strip__content {
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  animation-fill-mode: both;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  padding-top: 100%;
+}
+
+.strips .strip__content:hover {}
+
+@media screen and (max-width: 880px) {
+  .strips .strip__content:hover {
+    padding-top: 0%;
+  }
+}
+
+.strips .strip__content:hover:before {
+  transform: skew(-30deg) scale(3) translate(0, 0);
+  opacity: 0.2;
+}
+
+.strips .strip__content:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0.05;
+  transform-origin: center center;
+  transform: skew(-30deg) scaleY(1) translate(0, 0);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media screen and (max-width: 880px) {
+  .strips .strip__content {
+    flex-direction: row;
+    padding-top: 0%;
+    padding-left: 10px;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+  }
+}
+
+.strip__img {
+  width: 12vw;
+}
+
+.strip__text {
+  /* flex: 1; */ 
+    /* height: 100%; */
+    position: absolute;
+    bottom: 50px;
+}
+
+@media screen and (max-width: 880px) {
+  .strip__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-start;
+    margin-left: 5px;
+  }
+}
+
+.strip__text .strip__title {
+  display: block;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  font-size: 2.5vw;
+  font-weight: 400;
+  color: white;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  padding-top: 5%;
+
+  text-shadow: 2px 2px 6px red;
+}
+
+@media screen and (max-width: 880px) {
+  .strip__text .strip__title {
+    font-size: 1rem;
+    width: auto;
+    padding-top: 0%;
+    text-align: left;
+  }
+}
+
+.strip__text .stripe__description {
+  color: white;
+  font-size: 1rem;
+  padding-top: 3%;
+  width: 14vw;
+  visibility: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 880px) {
+  .strip__text .stripe__description {
+    visibility: visible;
+    text-align: left;
+    padding-top: 0%;
+    margin-top: 0%;
+    width: 90%;
+    font-size: 0.7rem;
+  }
+}
+
+.strip__content:hover .strip__text .stripe__description {
+  animation: 0.7s fadeIn;
+  animation-fill-mode: forwards;
+}
+
+.corner-ribbon {
+  width: 180px;
+  position: absolute;
+  top: 8px;
+  right: -65px;
+  left: auto;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 40px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  animation: 1s fadeIn;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  position: fixed;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+  z-index: -100;
+}
+
+.corner-ribbon.open {
+  background: #39d;
+}
+
+.corner-ribbon.closed {
+  background: #e43;
+}
+
+@keyframes strip1 {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes strip2 {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes strip3 {
+  0% {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes strip4 {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes strip5 {
+  0% {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes strip6 {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  line-height: 1.5;
+  margin: 0px;
+  padding: 0px;
+  background: #0541c8;
+}
+
+.splash {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+@-webkit-keyframes animate-svg-fill-1 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-1 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-1 {
+  -webkit-animation: animate-svg-fill-1 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s both;
+  animation: animate-svg-fill-1 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s both;
+}
+
+@-webkit-keyframes animate-svg-fill-2 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-2 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-2 {
+  -webkit-animation: animate-svg-fill-2 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s both;
+  animation: animate-svg-fill-2 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s both;
+}
+
+@-webkit-keyframes animate-svg-fill-3 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-3 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-3 {
+  -webkit-animation: animate-svg-fill-3 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s both;
+  animation: animate-svg-fill-3 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s both;
+}
+
+@-webkit-keyframes animate-svg-fill-4 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-4 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-4 {
+  -webkit-animation: animate-svg-fill-4 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s both;
+  animation: animate-svg-fill-4 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s both;
+}
+
+@-webkit-keyframes animate-svg-fill-5 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-5 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-5 {
+  -webkit-animation: animate-svg-fill-5 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2s both;
+  animation: animate-svg-fill-5 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2s both;
+}
+
+@-webkit-keyframes animate-svg-fill-6 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-6 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-6 {
+  -webkit-animation: animate-svg-fill-6 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s both;
+  animation: animate-svg-fill-6 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s both;
+}
+
+@-webkit-keyframes animate-svg-fill-7 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-7 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-7 {
+  -webkit-animation: animate-svg-fill-7 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4s both;
+  animation: animate-svg-fill-7 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4s both;
+}
+
+@-webkit-keyframes animate-svg-fill-8 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-8 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-8 {
+  -webkit-animation: animate-svg-fill-8 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s both;
+  animation: animate-svg-fill-8 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s both;
+}
+
+@-webkit-keyframes animate-svg-fill-9 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-9 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-9 {
+  -webkit-animation: animate-svg-fill-9 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.6s both;
+  animation: animate-svg-fill-9 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.6s both;
+}
+
+@-webkit-keyframes animate-svg-fill-10 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-10 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-10 {
+  -webkit-animation: animate-svg-fill-10 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.7s both;
+  animation: animate-svg-fill-10 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.7s both;
+}
+
+@-webkit-keyframes animate-svg-fill-11 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-11 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-11 {
+  -webkit-animation: animate-svg-fill-11 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8s both;
+  animation: animate-svg-fill-11 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8s both;
+}
+
+@-webkit-keyframes animate-svg-fill-12 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-12 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-12 {
+  -webkit-animation: animate-svg-fill-12 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.9s both;
+  animation: animate-svg-fill-12 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.9s both;
+}
+
+@-webkit-keyframes animate-svg-fill-13 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-13 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-13 {
+  -webkit-animation: animate-svg-fill-13 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2s both;
+  animation: animate-svg-fill-13 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2s both;
+}
+
+@-webkit-keyframes animate-svg-fill-14 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-14 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-14 {
+  -webkit-animation: animate-svg-fill-14 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.1s both;
+  animation: animate-svg-fill-14 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.1s both;
+}
+
+@-webkit-keyframes animate-svg-fill-15 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+@keyframes animate-svg-fill-15 {
+  0% {
+    fill: transparent;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+.splash .svg-elem-15 {
+  -webkit-animation: animate-svg-fill-15 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.2s both;
+  animation: animate-svg-fill-15 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 2.2s both;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,15 @@
+.transferTokens {
+  z-index: 1031;
+  position: fixed;
+}
+
+body {
+  font-size: 16px !important;
+}
+
+.loading{
+  height:100vh;
+  background: url("./../dappstyles/yTheusGif.gif") 0% 0% / 100% no-repeat fixed;
+  background-size: cover;
+  background-position: center center;
+} 

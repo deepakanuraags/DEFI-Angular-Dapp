@@ -1,0 +1,181 @@
+@import "../../assets/vendors/mdi/css/materialdesignicons.min.css";
+@import "../../assets/vendors/css/vendor.bundle.base.css";
+@import "../../assets/vendors/jvectormap/jquery-jvectormap.css";
+@import "../../assets/vendors/flag-icon-css/css/flag-icon.min.css";
+@import "../../assets/vendors/owl-carousel-2/owl.carousel.min.css";
+@import "../../assets/vendors/owl-carousel-2/owl.theme.default.min.css";
+@import "../../assets/css/style.css";
+
+body {
+  margin: 0px !important;
+}
+
+@keyframes chartjs-render-animation {
+  from {
+    opacity: .99
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+.chartjs-render-monitor {
+  animation: chartjs-render-animation 1ms
+}
+
+.chartjs-size-monitor,
+.chartjs-size-monitor-expand,
+.chartjs-size-monitor-shrink {
+  position: absolute;
+  direction: ltr;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: -1
+}
+
+.chartjs-size-monitor-expand>div {
+  position: absolute;
+  width: 1000000px;
+  height: 1000000px;
+  left: 0;
+  top: 0
+}
+
+.chartjs-size-monitor-shrink>div {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  left: 0;
+  top: 0
+}
+
+.paneDisplay {
+  display: block !important;
+}
+
+.disconnected {
+  margin: 0px;
+  background-color: red;
+  border-color: red;
+}
+
+.connected {
+  margin: 0px;
+  background-color: #00d25b;
+  border-color: #00d25b;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.nav-pills .nav-link {
+  border: 1px solid #2c2e33 !important;
+  padding: .5rem 1.5rem !important;
+}
+
+.nav-pills .nav-link {
+  border-radius: 0.25rem !important;
+}
+
+input#stakeamount:focus {
+  background-color: white;
+}
+
+input#amount:focus {
+  background-color: white;
+}
+
+
+.nav-item .nav-link {
+  color: #007bff;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+.nav-pills {
+  display: flex;
+  justify-content: center;
+}
+
+tr td:nth-child(1) {
+  width: 200px;
+}
+
+tr td:nth-child(2) {
+  text-align: right;
+}
+
+.invalid {
+  border: 2px solid red !important;
+}
+
+.userAccount {
+  border: 2px solid #D5003C;
+  border-radius: 5px;
+  padding: 2px;
+  background-color: #D5003C;
+  font-size: 0.9375rem;
+}
+
+.theusIcon:before {
+  content: '';
+  background-image: url('../../assets/images/logo-red.png');
+  width: 36px;
+  height: 50px;
+  display: inline-block;
+  background-size: 36px 50px;
+}
+
+.theusIconParent {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-7%);
+  /* margin: auto; */
+  top: 10px;
+}
+
+.protocol {
+  padding-left: 6px;
+  font-size: 1.2rem;
+  line-height: 22px;
+}
+
+.accountDetails {
+  /* display: flex;
+  flex-direction: column !important;
+  margin: 0px;
+  padding: 5px;
+  padding-bottom: 10px;
+  justify-content: space-between;
+  align-items: flex-end !important; */
+}
+
+.fixMargin {
+  /* margin: 0px !important;
+  margin-bottom: 5px !important; */
+}
+
+.navbar .navbar-menu-wrapper {
+  /* height: 72px; */
+}
+
+/* .tab-content {
+  min-height: 188px;
+  ;
+} */
+
+/* .row{
+  flex-direction:column
+} */

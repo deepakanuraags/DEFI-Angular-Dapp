@@ -1,0 +1,586 @@
+<div [className]="poolContext.imageClassName">
+    <div class="container-scroller">
+        <!-- partial:partials/_sidebar.html -->
+
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper" style="margin:0;width:100%">
+            <!-- partial:partials/_navbar.html -->
+            <nav class="navbar p-0 fixed-top d-flex flex-row">
+                <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+
+                </div>
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+
+
+                    <ul class="navbar-nav w-100">
+                        <li class="nav-item w-100 text-primary">
+                            <a routerLink="/home" class="text-primary">
+                                <i class="mdi mdi-arrow-left"></i> Back to Dashboard</a>
+
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav w-100 theusIconParent">
+                        <li class="nav-item dropdown d-none d-lg-block">
+                            <span class="theusIcon"></span>
+                        </li>
+                        <li class="nav-item dropdown d-none d-lg-block">
+                            <span class="protocol"><strong> THEUS YIELD</strong>
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROTOCOL</span>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav navbar-nav-right accountDetails">
+                        <li class="nav-item dropdown d-none d-lg-block">
+                            <span class="userAccount" [ngStyle]="{'background-color':poolContext.userAddressColor}">{{userAccountAddress}}</span>
+                        </li>
+                        <li class="nav-item dropdown d-none d-lg-block">
+                            <span class="nav-link create-new-button disconnected fixMargin" id="createbuttonDropdown"
+                                [class.connected]="isUserConnected" data-toggle="dropdown" aria-expanded="false"
+                                href="#">{{isUserConnected ? 'Connected' : 'Disconnected'}}</span>
+
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+
+                    <div class="content-child">
+
+                        <div class="row align-items-center justify-content-center">
+                            <!-- <div class="col-lg-6 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+
+
+                                        <div class="table-responsive">
+                                            <table class="table">
+
+                                                <tbody>
+                                                    <tr style="color:white" style="border:0px">
+                                                        <th colspan="2" style="border:0px;color:white"><span
+                                                                class="h4">{{poolContext.stakePoolName}} </span>
+
+
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Today's Total Rewards
+                                                        </td>
+                                                        <td>
+                                                            <h6 id="emission" class="text-success">
+                                                                +{{ytheusPoolDetais.todaysEmission}}</h6>
+                                                        </td>
+
+
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Pool
+                                                            Percentage
+                                                        </td>
+                                                        <td>
+                                                            <h6 id="emission" class="text-success">
+                                                                {{ytheusPoolDetais.indexPercentage}}%</h6>
+                                                        </td>
+
+
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Pool Quota
+                                                        </td>
+                                                        <td>
+                                                            <h6 id="emission" class="text-success">
+                                                                +{{ytheusPoolDetais.ytheusTokenPoolQuota}}</h6>
+                                                        </td>
+
+
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Total Staked
+                                                            Tokens
+                                                        </td>
+                                                        <td>
+                                                            <h6 id="emission" class="text-success">
+                                                                {{ytheusPoolDetais.totalStakedTokens}}</h6>
+                                                        </td>
+
+
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Next
+                                                            Reward Time
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="text-warning"><span
+                                                                    id="remainingTime">{{ytheusPoolDetais.nextEmission}}</span>
+                                                            </h6>
+                                                        </td>
+
+
+
+
+                                                    </tr>
+
+
+
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="col-xl-6 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+
+
+                                        <div class="table-responsive">
+                                            <table class="table .table-striped">
+
+                                                <tbody>
+                                                    <tr style="color:white">
+                                                        <th colspan="2" style="border:0px"><span class="h4">
+                                                            {{poolContext.stakePoolName}}
+                                                            </span>
+
+
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Pool
+                                                            Percentage
+                                                        </td>
+                                                        <td>
+                                                            <h6 id="emission" class="text-success">
+                                                                {{ytheusPoolDetais.indexPercentage}}%</h6>
+                                                        </td>
+
+
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Total Staked
+                                                            Tokens
+                                                        </td>
+                                                        <td>
+                                                            <h6 id="emission" class="text-success">
+                                                                {{ytheusPoolDetais.totalStakedTokens}}</h6>
+                                                        </td>
+
+
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Next
+                                                            Reward Time
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="text-warning"><span
+                                                                    id="remainingTime">{{ytheusPoolDetais.nextEmission}}</span>
+                                                            </h6>
+                                                        </td>
+
+
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>User Stakes
+                                                        </td>
+                                                        <td>
+                                                            <h6 id="emission" class="text-success">
+                                                                {{this.personalStatistics.yourTotalStake}}</h6>
+                                                        </td>
+
+
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Pool Quota
+                                                        </td>
+                                                        <td>
+                                                            <h6 id="emission" class="text-success">
+                                                                {{personalStatistics.quotaOfThePool}}%</h6>
+                                                        </td>
+
+
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Expected Daily Rewards
+
+
+                                                        </td>
+                                                        <td>
+                                                            <h6 id="emission" class="text-success">
+                                                                {{this.personalStatistics.expectedDailyToken}}</h6>
+                                                        </td>
+
+
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Current Rewards
+
+
+                                                        </td>
+                                                        <td>
+                                                            <h6 id="emission" class="text-success">
+                                                                {{personalStatistics.currentDividend}}</h6>
+                                                        </td>
+
+
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Date of Stake
+
+
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="text-warning">{{personalStatistics.dateOfStake}}
+
+                                                            </h6>
+                                                        </td>
+
+
+
+
+                                                    </tr>
+
+
+
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- <br><br> -->
+                        <div class="card-controls">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-xl-6">
+                                    <div class="card">
+                                        <div class="card-header" style="padding-bottom:0px">
+                                            <ul class="nav nav-pills" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" data-toggle="pill" role="tab"
+                                                        aria-selected="true" style="padding-right: 20px !important"
+                                                        (click)="setPane('stake')"
+                                                        [class.active]="pane=='stake'">Stake</a>
+                                                </li>
+
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-toggle="pill" role="tab"
+                                                        aria-selected="false" style="padding-right: 20px !important"
+                                                        (click)="setPane('rewards')"
+                                                        [class.active]="pane=='rewards'">Claim
+                                                        Rewards</a>
+
+                                                </li>
+
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-toggle="pill" role="tab"
+                                                        aria-selected="false" (click)="setPane('unstake')"
+                                                        [class.active]="pane=='unstake'">
+                                                        Unstake</a>
+
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+
+                                        <div class="card-body" style="padding-top:0px">
+                                            <div class="tab-content">
+
+
+                                                <div class="tab-pane fade" id="stakepane" role="tabpanel"
+                                                    [ngClass]="{'paneDisplay':paneState.stake,'show':paneState.stake}">
+
+
+
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+
+                                                            <input type="text" id="stakeamount"
+                                                                class="form-control text-right" placeholder="Amount"
+                                                                [(ngModel)]="amountToStake"
+                                                                [class.invalid]="!isAmountToStakeValid"
+                                                                (ngModelChange)="validateAmountToStake()">
+                                                        </div>
+                                                    </div>
+
+                                                    <div *ngIf="!isAmountToStakeValid" class="form-group">
+                                                        <div class="input-group">
+                                                            <span style="color:red">kindly
+                                                                insert a valid number !!</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group ">
+                                                        <div class="input-group justify-content-center">
+                                                            <span>{{poolContext.stakeTokenName}} Balance: <strong
+                                                                    class="strong" id="bal202"
+                                                                    style="color: white">{{personalStatistics.currentBalance}}
+                                                                    {{poolContext.stakeTokenName}}</strong></span>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="btn-block">
+                                                        <center>
+
+                                                            <button class="btn btn-primary btn-fw" id="approve"
+                                                                (click)="approve()"
+                                                                style="margin-bottom: 25px !important;margin-right: 25px !important">Approve</button>
+                                                            <button class="btn btn-primary btn-fw" id="stake"
+                                                                (click)="stake()"
+                                                                style="margin-bottom: 25px !important;margin-right: 25px !important">Stake</button>
+
+                                                        </center>
+                                                    </div>
+                                                    <!--
+                                                <div class="form-group" style="padding-top: 15px">
+                                                    <span>Guidelines:</span>
+    
+                                                    <div class="input-group">
+                                                        <span>- You need yTheus to be able to stake on this pool.</span>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="input-group">
+                                                         <span>- Approve yTheus for staking</span>
+                                                    </div>
+    
+                                                    <div class="input-group">
+                                                        <span>- Insert the amount you wish to stake and then click on the Stake button to stake your yTheus tokens.</span>
+                                                    </div>
+                                                </div>
+    -->
+
+
+                                                </div>
+
+                                                <div class="tab-pane fade" id="rewardspane" role="tabpanel"
+                                                    [ngClass]="{'paneDisplay':paneState.rewards,'show':paneState.rewards}">
+
+
+                                                    <div class="form-group" style="padding-top: 15px">
+                                                        <div class="input-group">
+                                                            <span id="hash" style="color: #ff6600"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group ">
+                                                        <div class="input-group justify-content-center">
+                                                            <span>Expected Daily Rewards: <span
+                                                                    style="color: white"><strong class="strong"
+                                                                        id="myyTheusdaily2">+{{personalStatistics.expectedDailyToken}}
+                                                                        yTheus</strong></span></span>
+
+                                                        </div>
+                                                        <div class="input-group justify-content-center">
+
+                                                            <span>Current Rewards: <span style="color: white"><strong
+                                                                        class="strong"
+                                                                        id="myyTheusdividend2">{{personalStatistics.currentDividend}}
+                                                                        yTheus</strong></span></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="btn-group btn-block mt-3  justify-content-center">
+
+                                                        <button id="reward" class="btn btn-primary btn-fw"
+                                                            style="width: 200px !important; flex: 0 !important;"
+                                                            (click)="claimRewards()">Claim</button>
+                                                        <!-- <button id="reward" class="btn custom-btn" style="width: 200px !important; flex: 0 !important">Reinvest</button> -->
+
+                                                    </div>
+
+
+
+
+                                                </div>
+
+
+                                                <div class="tab-pane fade" id="unstakepane" role="tabpanel"
+                                                    [ngClass]="{'paneDisplay':paneState.unstake,'show':paneState.unstake}">
+
+
+
+
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+
+                                                            </div>
+                                                            <input type="text" id="amount"
+                                                                class="form-control text-right" placeholder="Amount"
+                                                                [(ngModel)]="amountToUnstake"
+                                                                [class.invalid]="!isAmountToUnstakeValid"
+                                                                (ngModelChange)="validateAmountToUnstake()">
+                                                        </div>
+                                                    </div>
+                                                    <div *ngIf="!isAmountToUnstakeValid" class="form-group">
+                                                        <div class="input-group">
+                                                            <span style="color:red">kindly
+                                                                insert a valid number !!</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group ">
+
+                                                        <div class="input-group justify-content-center">
+
+                                                            <span>Current Stake Amount: <span
+                                                                    style="color: white"><strong class="strong"
+                                                                        id="myyTheusstake2">{{personalStatistics.yourTotalStake}}
+                                                                        {{poolContext.stakeTokenName}}</strong></span></span>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="btn-group btn-block mt-3  justify-content-center">
+
+                                                        <button class="btn btn-primary btn-fw" id="unstake"
+                                                            style="width: 200px !important; flex: 0 !important"
+                                                            (click)="unstake()">Unstake</button>
+
+
+                                                    </div>
+
+
+
+
+
+                                                </div>
+
+
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020
+                            THEUS YIELD PROTOCOL | All rights reserved.</span>
+
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+</div>
+<!-- container-scroller -->
+<!-- plugins:js -->
+<!-- <script src="assets/vendors/js/vendor.bundle.base.js"></script> -->
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<!-- <script src="assets/vendors/chart.js/Chart.min.js"></script>
+        <script src="assets/vendors/progressbar.js/progressbar.min.js"></script>
+        <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+        <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script> -->
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<!-- <script src="assets/js/off-canvas.js"></script>
+        <script src="assets/js/hoverable-collapse.js"></script>
+        <script src="assets/js/misc.js"></script>
+        <script src="assets/js/settings.js"></script>
+        <script src="assets/js/todolist.js"></script> -->
+<!-- endinject -->
+<!-- Custom js for this page -->
+<!-- <script src="assets/js/dashboard.js"></script> -->
+<!-- End custom js for this page -->
+
+<!-- <div class="jvectormap-tip"></div> -->
+<!-- <script type="text/javascript">
+            function Timer(duration, display) {
+                var timer = duration, hours, minutes, seconds;
+                setInterval(function () {
+                    hours = parseInt((timer / 3600) % 24, 10)
+                    minutes = parseInt((timer / 60) % 60, 10)
+                    seconds = parseInt(timer % 60, 10);
+    
+                    hours = hours < 10 ? "0" + hours : hours;
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+    
+                    display.html(hours + "Hours  " + minutes + "Mins  " + seconds + "Sec");
+    
+                    --timer;
+                }, 1000);
+            }
+    
+            jQuery(function ($) {
+                var twentyFourHours = 24 * 60 * 60;
+                var display = $('#remainingTime');
+                Timer(twentyFourHours, display);
+            });
+        </script> -->
+<!-- </body>
+    
+    </html> -->
